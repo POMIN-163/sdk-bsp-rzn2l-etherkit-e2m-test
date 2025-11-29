@@ -16,3 +16,4 @@ rtthread.map
 *.d
 RTE_Components.h
 Pre_Include_Global.h
+.cache

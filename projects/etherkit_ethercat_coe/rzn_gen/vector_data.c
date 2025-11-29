@@ -21,6 +21,10 @@
             [321] = canfd_channel_tx_isr, /* CAN1_TX (CANFD1 Channel TX interrupt) */
             [322] = canfd_error_isr, /* CAN1_CHERR (CANFD1 Channel CAN error interrupt) */
             [323] = canfd_common_fifo_rx_isr, /* CAN1_COMFRX (CANFD1 Common RX FIFO or TXQ interrupt) */
+            [435] = sci_uart_eri_isr, /* SCI5_ERI (SCI5 Receive error) */
+            [436] = sci_uart_rxi_isr, /* SCI5_RXI (SCI5 Receive data full) */
+            [437] = sci_uart_txi_isr, /* SCI5_TXI (SCI5 Transmit data empty) */
+            [438] = sci_uart_tei_isr, /* SCI5_TEI (SCI5 Transmit end) */
         };
         #if (1 == BSP_FEATURE_BSP_IRQ_CR52_SEL_SUPPORTED)
         const bsp_interrupt_event_t g_interrupt_event_link_select[BSP_ICU_VECTOR_MAX_ENTRIES] =
@@ -42,6 +46,10 @@
             [321] = BSP_PRV_CR52_SEL_ENUM(EVENT_CAN1_TX), /* CAN1_TX (CANFD1 Channel TX interrupt) */
             [322] = BSP_PRV_CR52_SEL_ENUM(EVENT_CAN1_CHERR), /* CAN1_CHERR (CANFD1 Channel CAN error interrupt) */
             [323] = BSP_PRV_CR52_SEL_ENUM(EVENT_CAN1_COMFRX), /* CAN1_COMFRX (CANFD1 Common RX FIFO or TXQ interrupt) */
+            [435] = BSP_PRV_CR52_SEL_ENUM(EVENT_SCI5_ERI), /* SCI5_ERI (SCI5 Receive error) */
+            [436] = BSP_PRV_CR52_SEL_ENUM(EVENT_SCI5_RXI), /* SCI5_RXI (SCI5 Receive data full) */
+            [437] = BSP_PRV_CR52_SEL_ENUM(EVENT_SCI5_TXI), /* SCI5_TXI (SCI5 Transmit data empty) */
+            [438] = BSP_PRV_CR52_SEL_ENUM(EVENT_SCI5_TEI), /* SCI5_TEI (SCI5 Transmit end) */
         };
         #endif
         #endif

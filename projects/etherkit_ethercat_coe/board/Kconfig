@@ -8,14 +8,14 @@ menu "Hardware Drivers Config"
         default y
 
     menu "Onboard Peripheral Drivers"
-            
+
         config BSP_USING_COE_IO
         	bool "Enable EtherCAT COE_IO"
         	default y
         config COE_DUMMY_LOG
         	bool "Enable CoE dummy motor printf"
         	default n
-            
+
     endmenu
 
     menu "On-chip Peripheral Drivers"
@@ -50,6 +50,33 @@ menu "Hardware Drivers Config"
 
                         config BSP_UART0_TX_BUFSIZE
                             int "Set UART0 TX buffer size"
+                            range 0 65535
+                            depends on RT_USING_SERIAL_V2
+                            default 0
+                    endif
+
+                menuconfig BSP_USING_UART5
+                    bool "Enable UART5"
+                    default n
+                    if BSP_USING_UART5
+                        config BSP_UART5_RX_USING_DMA
+                            bool "Enable UART5 RX DMA"
+                            depends on BSP_USING_UART5 && RT_SERIAL_USING_DMA
+                            default n
+
+                        config BSP_UART5_TX_USING_DMA
+                            bool "Enable UART5 TX DMA"
+                            depends on BSP_USING_UART5 && RT_SERIAL_USING_DMA
+                            default n
+
+                        config BSP_UART5_RX_BUFSIZE
+                            int "Set UART5 RX buffer size"
+                            range 64 65535
+                            depends on RT_USING_SERIAL_V2
+                            default 256
+
+                        config BSP_UART5_TX_BUFSIZE
+                            int "Set UART5 TX buffer size"
                             range 0 65535
                             depends on RT_USING_SERIAL_V2
                             default 0
@@ -128,7 +155,7 @@ menu "Hardware Drivers Config"
             bool "Enable SPI BUS"
             default n
             select RT_USING_SPI
-            if BSP_USING_SPI 
+            if BSP_USING_SPI
                 config BSP_USING_SPI0
                     bool "Enable SPI0 BUS"
                     default n
@@ -161,7 +188,7 @@ menu "Hardware Drivers Config"
             default n
 
     endmenu
-    
+
     menu "Board extended module Drivers"
          menuconfig BSP_USING_RW007
                 bool "Enable RW007"
@@ -197,7 +224,7 @@ menu "Hardware Drivers Config"
                     hex "(HEX)RESET pin index"
                     default 0x1706
             endif
-        
+
         config BSP_USING_CYBERGEAR_MOTOR
         	bool "Enable CyberGear Motor"
         	default n

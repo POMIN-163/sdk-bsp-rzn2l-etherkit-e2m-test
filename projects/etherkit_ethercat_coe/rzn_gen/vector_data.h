@@ -8,7 +8,7 @@
 
                 /* Number of interrupts allocated */
         #ifndef VECTOR_DATA_IRQ_COUNT
-        #define VECTOR_DATA_IRQ_COUNT    (17)
+        #define VECTOR_DATA_IRQ_COUNT    (21)
         #endif
         /* ISR prototypes */
         void cmt_cm_int_isr(void);
@@ -43,6 +43,10 @@
         #define VECTOR_NUMBER_CAN1_TX ((IRQn_Type) 321) /* CAN1_TX (CANFD1 Channel TX interrupt) */
         #define VECTOR_NUMBER_CAN1_CHERR ((IRQn_Type) 322) /* CAN1_CHERR (CANFD1 Channel CAN error interrupt) */
         #define VECTOR_NUMBER_CAN1_COMFRX ((IRQn_Type) 323) /* CAN1_COMFRX (CANFD1 Common RX FIFO or TXQ interrupt) */
+        #define VECTOR_NUMBER_SCI5_ERI ((IRQn_Type) 435) /* SCI5_ERI (SCI5 Receive error) */
+        #define VECTOR_NUMBER_SCI5_RXI ((IRQn_Type) 436) /* SCI5_RXI (SCI5 Receive data full) */
+        #define VECTOR_NUMBER_SCI5_TXI ((IRQn_Type) 437) /* SCI5_TXI (SCI5 Transmit data empty) */
+        #define VECTOR_NUMBER_SCI5_TEI ((IRQn_Type) 438) /* SCI5_TEI (SCI5 Transmit end) */
         typedef enum IRQn {
             SoftwareGeneratedInt0 = -32,
             SoftwareGeneratedInt1 = -31,
@@ -84,6 +88,10 @@
             CAN1_TX_IRQn = 321, /* CAN1_TX (CANFD1 Channel TX interrupt) */
             CAN1_CHERR_IRQn = 322, /* CAN1_CHERR (CANFD1 Channel CAN error interrupt) */
             CAN1_COMFRX_IRQn = 323, /* CAN1_COMFRX (CANFD1 Common RX FIFO or TXQ interrupt) */
+            SCI5_ERI_IRQn = 435, /* SCI5_ERI (SCI5 Receive error) */
+            SCI5_RXI_IRQn = 436, /* SCI5_RXI (SCI5 Receive data full) */
+            SCI5_TXI_IRQn = 437, /* SCI5_TXI (SCI5 Transmit data empty) */
+            SCI5_TEI_IRQn = 438, /* SCI5_TEI (SCI5 Transmit end) */
             SHARED_PERIPHERAL_INTERRUPTS_MAX_ENTRIES = BSP_VECTOR_TABLE_MAX_ENTRIES
         } IRQn_Type;
 

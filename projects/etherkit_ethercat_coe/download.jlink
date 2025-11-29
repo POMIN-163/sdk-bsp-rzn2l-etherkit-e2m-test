@@ -1,0 +1,11 @@
+device R9A07G084M04GBG
+if SWD
+speed auto
+connect
+r
+erase
+loadfile rtthread.hex
+verifyfile rtthread.hex
+r
+go
+exit
